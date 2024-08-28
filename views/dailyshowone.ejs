@@ -1,0 +1,35 @@
+<%-include("./partials/header")%>
+<div
+  class="showonemain w-full h-full bg-red-500 flex justify-center items-center"
+>
+  <div class="card rounded-3xl backdrop-blur-sm bg-black/30 w-1/2 h-4/5">
+    <div
+      class="w-full font-base mt-10 text-2xl text-white underline flex justify-around items-center"
+    >
+      <a class="text-xl font-normal text-green-300" href="/expense/update/<%=expense._id%>">Update</a>
+      <h1>
+        Data - <%= new Date(expense.createdAt).toLocaleDateString('en-GB') %>
+      </h1>
+      <a class="text-xl font-normal text-green-300" href="/expense/delete/<%=expense._id%>"">Delete</a>
+    </div>
+
+    <br />
+    <ul class="text-white flex justify-center mt-5 items-center text-2xl">
+      <li class="flex flex-col gap-2 w-full items-center">
+        <p class="border-2 w-4/5 p-2 text-center">Title - <%=expense.title%></p>
+        <p class="border-2 w-4/5 p-2 text-center">Amount - <%=expense.amount%></p>
+        <p class="border-2 w-4/5 p-2 text-center">
+          Payment Mode - <%=expense.paymentMode%>
+        </p>
+        <p class="border-2 w-4/5 p-2 text-center">
+          Category - <%=expense.category%>
+        </p>
+        <p class="border-2 w-4/5 h-40 text-center p-2">
+          Remark - <%=expense.remark%>
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<%-include("./partials/footer")%>

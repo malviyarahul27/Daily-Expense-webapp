@@ -1,0 +1,28 @@
+<%-include("./partials/header")%>
+<div class="showDates w-full h-full p-10">
+  <div class="w-full h-full backdrop-blur-sm bg-black/20">
+    <ul
+      id="hide-scrollbar"
+      class="w-full h-full p-10 gap-4 flex flex-col-2 flex-wrap overflow-auto"
+    >
+      <% dailyExShow.forEach(function(expense, index){ %>
+
+      <li
+        class="border-2 border-black text-white text-center bg-black/40 text-xl w-fit h-fit p-4"
+      >
+        <a class="" href="/expense/dailyshowone/<%= expense.id%>">
+          <p><%=index + 1%></p>
+          <p>Title: <%=expense.title %></p>
+          <p><%= new Date(expense.createdAt).toLocaleDateString('en-GB') %></p>
+        </a>
+      </li>
+
+      <br /><br />
+      <% }) %>
+    </ul>
+  </div>
+</div>
+
+<%-include("./partials/footer")%>
+
+<!-- grid grid-rows-8 grid-flow-col -->
