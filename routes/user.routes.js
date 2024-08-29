@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const {isLoggedIn} = require("../middlewares/auth.middlewares")
 const UserSchema = require("../modals/userSchema");
 
 const passport = require('passport');
@@ -32,10 +32,26 @@ router.post("/register", async(req, res, next)=>{
 });
 
 router.get("/login", (req, res, next)=>{
-    res.render("login", {title: "Expense Tracker | Login",user: req.user})
+    res.render("login", {title: "Expense Tracker | Login", user: req.user})
     
 })
-
-
-
+router.post("/login", passport.authenticate("local", {
+    successRedirect: "/user/main",
+    failureRedirect: "/user/login"
+    }),    
+    (req,res,next)=>{}
+)
+router.get("/main", isLoggedIn, async(req, res, next)=>{
+    try {
+        console.log(req.user)
+        res.render("main", {title: "Expense Tracker | Home", user: req.user} )
+    } catch (error) {
+        res.send(error.message)
+    }
+});
+router.get("/logout", isLoggedIn, async(req, res, next)=>{
+    req.logout(()=>{
+        res.redirect("/")
+    });
+});
 module.exports = router;

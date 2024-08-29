@@ -1,0 +1,55 @@
+<%- include("./partials/header")%>
+
+<div class="container w-full h-full flex justify-evenly items-center bg-black">
+  <div
+    class="left bg-yellow-400 w-[46%] h-[90%] flex justify-center gap-5 flex-col items-center"
+  >
+    <h1>Main page</h1>
+
+    <h1 class="Dailytxt text-5xl">Daily work Expense</h1>
+    <p class="para text-base font-medium">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+      nesciunt.
+    </p>
+    <!-- <a href="/expence/dailyExpence"></a> -->
+    <div
+      class="bottonsbox1 w-96 items-center flex flex-col gap-2 text-lg font-medium justify-evenly"
+    >
+      <a
+        class="border-2 w-full text-center py-1 px-3 rounded-full border-black"
+        href="/expense/dailycreate"
+        >Add New</a
+      >
+      <a
+        class="border-2 w-full text-center py-1 px-3 rounded-full border-black"
+        href="/expense/dailyshow"
+        >Show Expenses</a
+      >
+    </div>
+  </div>
+  <div
+    class="right bg-yellow-400 w-[46%] h-[90%] flex flex-col gap-5 justify-center items-center"
+  >
+    <h1 class="delivarytxt text-5xl">Delivary Expense</h1>
+    <p class="para text-base font-medium">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, harum?
+    </p>
+    <!-- <a href="/expence/delivaryExpence"></a> -->
+    <div
+      class="bottonsbox1 w-96 items-center flex flex-col gap-2 text-lg font-medium justify-evenly"
+    >
+      <a
+        class="border-2 w-full text-center py-1 px-3 rounded-full border-black whitecrate"
+        href="/expence/delivarycreate"
+        >Add New</a
+      >
+      <a
+        class="border-2 w-full text-center py-1 px-3 rounded-full border-black"
+        href="/expence/delivaryshow"
+        >Show Expenses</a
+      >
+    </div>
+  </div>
+</div>
+
+<%- include("./partials/footer")%>

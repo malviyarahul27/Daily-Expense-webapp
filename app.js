@@ -15,6 +15,7 @@ var userRouter = require('./routes/user.routes');
 
 
 
+
 const db = require("./modals/db")
 const UserSchema = require("./modals/userSchema")
 const dailySchema = require("./modals/DailySchema")

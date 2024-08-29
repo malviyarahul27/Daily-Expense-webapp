@@ -5,7 +5,7 @@ const dailyExpense = require("../modals/DailySchema");
 
 
 router.get("/dailycreate", (req, res, next)=>{
-    res.render("dailycreate", {title: "Expense | Daily Expense"})
+    res.render("dailycreate", {title: "Expense | Daily Expense", user: req.user})
 });
 // post 
 router.post("/dailycreate", async (req, res, next)=>{
@@ -22,7 +22,7 @@ router.post("/dailycreate", async (req, res, next)=>{
 router.get("/dailyshow", async(req, res, next)=>{
     try {
         const dailyExShow = await dailyExpense.find();
-        res.render("dailyshow", {title: "Expense Tracker | Daily Expense Show", dailyExShow: dailyExShow})
+        res.render("dailyshow", {title: "Expense Tracker | Daily Expense Show", user: req.user , dailyExShow: dailyExShow})
         // console.log(dailyExShow) for checking
     } catch (error) {
         console.log(error.message);
@@ -34,6 +34,7 @@ router.get("/dailyshowone/:id", async (req,res,next)=>{
         const expense = await dailyExpense.findById(req.params.id);
         res.render("dailyshowone",{
             title: "Expense Tracker | Expense Details",
+            user: req.user,
             expense: expense
         });
     } catch (error) {
@@ -56,6 +57,7 @@ router.get("/update/:id", async(req, res, next)=> {
         const dailyshowupdate = await dailyExpense.findById(req.params.id);
         res.render("dailyupdate",{
             title: "Expense Tracker | Update Daily Expense",
+            user: req.user,
             expense: dailyshowupdate
         });
     } catch (error) {
@@ -73,15 +75,5 @@ router.post("/update/:id", async(req, res, next)=> {
     }
 })
 
-
-
-router.get("/delivary/create", (req, res, next)=>{
-
-    res.render("delivarycreate", {title: "Express | Daily Expense" })
-});
-
-router.get("/delivary/show", (req, res, next)=>{
-    res.render("delivaryshow", {title: "Express | Daily Expense" })
-});
 
 module.exports = router;

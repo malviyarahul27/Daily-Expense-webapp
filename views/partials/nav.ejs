@@ -1,18 +1,15 @@
-<nav
-  style="border-bottom: 0.5px solid grey"
-  class="bg-black p-[0.1%] text-white w-full h-36 lg:h-14 font-semibold flex justify-between items-center"
->
-  <div
-    class="lg:px-20 bg-blu-200 w-[60%] h-full text-end flex justify-end items-center"
-  >
-    <a
-      class="w-fit h-fit text-6xl lg:text-3xl lg:border-none border-8 px-1 border-black"
-      style="font-family: Montserrat"
-      href="/"
-      >EXPENZ</a
-    >
+<nav style="border-bottom: 0.5px solid grey"
+  class="bg-black p-[0.1%] text-white w-full h-36 lg:h-14 font-semibold flex justify-between items-center">
+  <div class="lg:px-20 bg-blu-200 w-[60%] h-full text-end flex justify-end items-center">
+    <a class="w-fit h-fit text-6xl lg:text-3xl lg:border-none border-8 px-1 border-black"
+      style="font-family: Montserrat" href="/">EXPENZ</a>
   </div>
-  <div class="w-[40%] h-full text-end px-14 flex">
-    <a class="w-full m-auto" href="/user/register">Signup</a>
+  <div class="h-full flex mr-10 gap-8 bg-red-30">
+    <% if (user) { %>
+      <a class="w-full m-auto" href="/user/logout">Signout</a>
+      <% } else { %>
+        <a class="w-full m-auto" href="/user/register">SIGNUP</a>
+        <a class="w-full m-auto" href="/user/login">LOGIN</a>
+        <% } %>
   </div>
 </nav>

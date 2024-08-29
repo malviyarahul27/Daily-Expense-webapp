@@ -84,11 +84,21 @@
         ></textarea>
       </div>
       <div class="w-full flex justify-evenly px-28 text-white">
+        <% if (user) { %>
         <button
+          type="submit"
           class="border-2 text-lg font-semibold p-1 rounded-lg mt-5 border-white"
         >
           Add Expense
         </button>
+        <% } else { %>
+        <a
+          class="border-2 text-lg font-semibold p-1 rounded-lg mt-4 border-white"
+          href="/user/login"
+          >Add Expense</a
+        >
+        <% } %>
+
         <!-- <button class="border-2 text-lg font-semibold p-1 rounded-lg mt-5 border-white"><a href="/expense/daily/show">Show Expense</a></button> -->
       </div>
     </form>
